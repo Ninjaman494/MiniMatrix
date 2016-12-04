@@ -55,11 +55,12 @@ public class BaseCharacter extends Rectangle {
 		
 		//Environment section of algorithm
 		if(currentEnvironment !=null){  
-			if(currentEnvironment.getHealthState()){ 
+			if(currentEnvironment.getHealthState()){
+				//if in a GoodHealth environment, choose default movement algorithm
 				defaultMovement();
 			} 
 			else{  
-				
+				//Algorithm for leaving a BadHealth environment
 				float angle = getAngle(getNearest()); 
 				double moveToX = getNearest().getX();  
 				double moveToY = getNearest().getY();  	 
