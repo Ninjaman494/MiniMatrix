@@ -61,11 +61,9 @@ public class BaseCharacter extends Rectangle {
 			} 
 			else{  
 				//Algorithm for leaving a BadHealth environment
-				float angle = getAngle(getNearest()); 
-				double moveToX = getNearest().getX();  
-				double moveToY = getNearest().getY();  	 
-				int i = (int) (Math.random()*6);  
-				int j = (int) (Math.random()*6);  
+				float angle = getAngle(getNearest());
+				int i;
+				int j;
 				if(angle>=315 || (angle>0 && angle<45)){    
 					super.setX(super.getX()+5); 
 					j = (int) (Math.random()*11) - 5; 
