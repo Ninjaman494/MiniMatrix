@@ -1,12 +1,13 @@
-package SocialForces;
+package SocialForces.Relationships;
 
 import Characters.*;
+import SocialForces.Marriage;
 
 public class MaritalRelationship {
-	BaseCharacter husband; 
-	BaseCharacter wife;  
-	int intimacyLevel; 
-	SocialForce Force = new SocialForce();
+	public BaseCharacter husband;
+	public BaseCharacter wife;
+	public int intimacyLevel;
+	Marriage Force = new Marriage();
 	public MaritalRelationship(BaseCharacter b1, BaseCharacter b2){    
 		if(b1.gender.equals("male")){ 
 			this.husband = b1; 
