@@ -7,7 +7,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class BaseCharacter extends Rectangle { 
+public class BaseCharacter extends Character extends Rectangle {
 	public boolean isMarried;
 	public String gender;
 	String name;
