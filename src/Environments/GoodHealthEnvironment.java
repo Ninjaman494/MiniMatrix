@@ -1,3 +1,7 @@
+package Environments;
+
+import Characters.BaseCharacter;
+import Environments.Environment;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -14,7 +18,7 @@ public class GoodHealthEnvironment extends Rectangle implements Environment {
 	}
 
 	@Override
-	public boolean inEnvironment(BaseCharacter c) { 
+	public boolean inEnvironment(BaseCharacter c) {
 		return c.intersects(this.getBoundsInLocal());
 	}
 

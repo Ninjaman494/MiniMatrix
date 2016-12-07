@@ -1,3 +1,6 @@
+package SocialForces;
+
+import Characters.*;
 
 public class MaritalRelationship {
 	BaseCharacter husband; 

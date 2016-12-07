@@ -1,19 +1,20 @@
-import java.util.ArrayList;
+package Characters;
 
+import java.util.ArrayList;
+import SocialForces.*;
+import Environments.*;
 import javafx.geometry.Point2D;
-import javafx.scene.Node;
-import javafx.scene.effect.Light.Point;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class BaseCharacter extends Rectangle { 
-	boolean isMarried; 
-	String gender;  
+	public boolean isMarried;
+	public String gender;
 	String name;
 	ArrayList<BaseCharacter> knownPeople = new ArrayList<>(); 
 	ArrayList<MaritalRelationship> relationships = new ArrayList<>(); 
 	ArrayList<Environment> environments = new ArrayList<>();   
-	Environment currentEnvironment = null; 
+	Environment currentEnvironment = null;
 	
 	public BaseCharacter(double x,double y,double width,double height,String gender,String name){  
 		super(x,y,width,height);    
@@ -24,19 +25,19 @@ public class BaseCharacter extends Rectangle {
 		environments.add(new GoodHealthEnvironment(500,0,500,500));  
 		//
 		/* 2 halves, horizontal
-		environments.add(new BadHealthEnvironment(0,0,1000,500));
-		environments.add(new GoodHealthEnvironment(0,500,1000,500)); 
+		environments.add(new Environments.BadHealthEnvironment(0,0,1000,500));
+		environments.add(new Environments.GoodHealthEnvironment(0,500,1000,500));
 		*/ 
 		/*3 Areas ,1 Good top left,1 Bad bottom left,1 Bad right side 
-		environments.add(new GoodHealthEnvironment(0,0,500,500));  
-		environments.add(new BadHealthEnvironment(0,500,500,500)); 
-		environments.add(new BadHealthEnvironment(500,0,500,1000));   
+		environments.add(new Environments.GoodHealthEnvironment(0,0,500,500));
+		environments.add(new Environments.BadHealthEnvironment(0,500,500,500));
+		environments.add(new Environments.BadHealthEnvironment(500,0,500,1000));
 		*/ 
 		/*5,border pane layout, Bad in the center, Good around
-		environments.add(new GoodHealthEnvironment(0,0,250,1000));  
-		environments.add(new GoodHealthEnvironment(250,0,500,250));  
-		environments.add(new GoodHealthEnvironment(750,0,250,1000));   
-		environments.add(new BadHealthEnvironment(250,250,500,500));  
+		environments.add(new Environments.GoodHealthEnvironment(0,0,250,1000));
+		environments.add(new Environments.GoodHealthEnvironment(250,0,500,250));
+		environments.add(new Environments.GoodHealthEnvironment(750,0,250,1000));
+		environments.add(new Environments.BadHealthEnvironment(250,250,500,500));
 		*/
 		
 		this.gender = gender; 
@@ -53,7 +54,7 @@ public class BaseCharacter extends Rectangle {
 		//Algorithm for movement 
 		//TO-DO: Implement vision areas and use them in algorithm 
 		
-		//Environment section of algorithm
+		//Environments.Environment section of algorithm
 		if(currentEnvironment !=null){  
 			if(currentEnvironment.getHealthState()){
 				//if in a GoodHealth environment, choose default movement algorithm

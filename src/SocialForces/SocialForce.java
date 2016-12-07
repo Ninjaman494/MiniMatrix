@@ -1,3 +1,7 @@
+package SocialForces;
+
+import Characters.*;
+
 public class SocialForce {
 		
 	public void onCollision(MaritalRelationship r){ 
