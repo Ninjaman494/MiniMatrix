@@ -2,6 +2,7 @@ package SocialForces;
 
 import Behaviors.Behavior;
 import Characters.Character;
+import SocialForces.Relationships.Relationship;
 
 /**
  * Created by akash on 12/7/2016.

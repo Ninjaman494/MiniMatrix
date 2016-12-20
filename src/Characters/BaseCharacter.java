@@ -1,23 +1,24 @@
 package Characters;
 
 import java.util.ArrayList;
-import SocialForces.*;
+
 import Environments.*;
+import SocialForces.Relationships.MaritalRelationship;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class BaseCharacter extends Character extends Rectangle {
+public class BaseCharacter /*extends Character*/ extends Rectangle {
 	public boolean isMarried;
 	public String gender;
 	String name;
 	ArrayList<BaseCharacter> knownPeople = new ArrayList<>(); 
-	ArrayList<MaritalRelationship> relationships = new ArrayList<>(); 
+	ArrayList<MaritalRelationship> relationships = new ArrayList<>();
 	ArrayList<Environment> environments = new ArrayList<>();   
 	Environment currentEnvironment = null;
 	
-	public BaseCharacter(double x,double y,double width,double height,String gender,String name){  
-		super(x,y,width,height);    
+	public BaseCharacter(double x,double y,double width,double height,String gender,String name){
+		//super(x,y,width,height);
 		//4 quadrants
 		environments.add(new BadHealthEnvironment(0,0,500,500));  
 		environments.add(new GoodHealthEnvironment(0,500,500,500)); 
@@ -27,19 +28,19 @@ public class BaseCharacter extends Character extends Rectangle {
 		/* 2 halves, horizontal
 		environments.add(new Environments.BadHealthEnvironment(0,0,1000,500));
 		environments.add(new Environments.GoodHealthEnvironment(0,500,1000,500));
-		*/ 
-		/*3 Areas ,1 Good top left,1 Bad bottom left,1 Bad right side 
+		*/
+		/*3 Areas ,1 Good top left,1 Bad bottom left,1 Bad right side
 		environments.add(new Environments.GoodHealthEnvironment(0,0,500,500));
 		environments.add(new Environments.BadHealthEnvironment(0,500,500,500));
 		environments.add(new Environments.BadHealthEnvironment(500,0,500,1000));
-		*/ 
+		*/
 		/*5,border pane layout, Bad in the center, Good around
 		environments.add(new Environments.GoodHealthEnvironment(0,0,250,1000));
 		environments.add(new Environments.GoodHealthEnvironment(250,0,500,250));
 		environments.add(new Environments.GoodHealthEnvironment(750,0,250,1000));
 		environments.add(new Environments.BadHealthEnvironment(250,250,500,500));
 		*/
-		
+		this.setX(x);this.setY(y);this.setWidth(width);this.setHeight(height);
 		this.gender = gender; 
 		this.name = name; 
 		isMarried = false;
@@ -49,7 +50,7 @@ public class BaseCharacter extends Character extends Rectangle {
 		else if(gender.equals("female")){ 
 			super.setFill(Color.RED);
 		}
-	} 
+	}
 	public void chooseMove(){ 
 		//Algorithm for movement 
 		//TO-DO: Implement vision areas and use them in algorithm 

@@ -1,12 +1,12 @@
 package Environments;
 
-import Characters.*;
+import Characters.Character;
 import javafx.geometry.Bounds;
 import javafx.scene.shape.Rectangle;
 
 public interface Environment {
 	public boolean getHealthState(); 
-	public boolean inEnvironment(BaseCharacter c); 
+	public boolean inEnvironment(Character c);
 	public Rectangle getBoundingBox();  
 	public double getX(); 
 	public double getY(); 

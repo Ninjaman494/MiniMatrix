@@ -1,24 +1,36 @@
 package Characters;
 
 import Environments.Environment;
-import SocialForces.SocialForce;
+import SocialForces.*;
 import Behaviors.*;
-import javafx.geometry.Point2D;
 
-import java.awt.*;
+import SocialForces.Relationships.*;
+import javafx.geometry.Point2D;
+import javafx.scene.paint.*;
+import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 
 /**
  * Created by akash on 12/7/2016.
  */
 public abstract class Character extends Rectangle {
-    private String gender;
-    private String name;
-    private ArrayList<Environment> environments;
+    public String gender;
+    public String name;
+    public Environment currentEnvironment;
+    ArrayList<Environment> environments;
+    ArrayList<Character> knownPeople;
+    ArrayList<Relationship> relationships;
+    ArrayList<SocialForce> forces;
     public Character(int x, int y, int width, int height, String gender, String name) {
         super(x,y,width,height);
         this.gender = gender;
         this.name = name;
+        if(gender.equals("male")){
+            super.setFill(Color.BLUE);
+        }
+        else if(gender.equals("female")){
+            super.setFill(javafx.scene.paint.Color.RED);
+        }
     }
 
     public abstract void onSpawn(ArrayList<Environment> environments,ArrayList<SocialForce> forces);
@@ -62,5 +74,4 @@ public abstract class Character extends Rectangle {
         }
         return closest;
     }
-
 }
