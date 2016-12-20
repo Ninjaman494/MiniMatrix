@@ -1,8 +1,11 @@
 package Client;
 
-import Characters.BaseCharacter;
+import Characters.Character;
+import Characters.DefaultCharacter;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -26,6 +29,28 @@ public class World extends Application {
         stage.setTitle("Mini Matrix");
         stage.setScene(scene);
         stage.show();
+
+
+
+        AnimationTimer timer = new AnimationTimer() {
+            private long last =0;
+            @Override
+            // Actions to handle on every frame update
+            public void handle(long l) {
+                if(l-last>=100_000_000){
+                    //default actions
+                    for(Node o: root.getChildren()){
+                        ((Character)o).onFrame();
+                    }
+
+                    //Methods to check(relationship's "check" method)
+                    last = l;
+                }
+            }
+
+        };
+        timer.start();
+
     }
 
     private Group populate(int pop){
@@ -38,10 +63,10 @@ public class World extends Application {
 
             int gender = (int)(Math.random()*2);
             if(gender ==0){
-                root.getChildren().add(new BaseCharacter(x,y,10,10,"male",maleNames[1]));
+                root.getChildren().add(new DefaultCharacter(x,y,10,10,"male",maleNames[1]));
             }
             else if(gender ==1){
-                root.getChildren().add(new BaseCharacter(x,y,10,10,"female",maleNames[1]));
+                root.getChildren().add(new DefaultCharacter(x,y,10,10,"female",maleNames[1]));
             }
         }
         return root;

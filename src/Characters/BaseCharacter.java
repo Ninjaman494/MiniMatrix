@@ -136,10 +136,10 @@ public class BaseCharacter /*extends Character*/ extends Rectangle {
 	public void onFrame(){   
 		boolean isInOne = false;
 		for(Environment e: environments){ 
-			if(e.inEnvironment(this)){  
+			/*if(e.inEnvironment(this)){
 				currentEnvironment = e; 
 				isInOne = true;
-			} 
+			} */
 		} 
 		if(!isInOne){currentEnvironment = null; };
 		for(MaritalRelationship m : relationships){ 

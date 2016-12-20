@@ -28,13 +28,18 @@ public class DefaultCharacter extends Character {
     }
 
     public void onFrame(){
-
+        ArrayList<Behavior> behaviors = chooseBehaviors();
+        for(Behavior b: behaviors) {
+            b.execute(this);
+        }
     }
     public void onCollisionDetected(Character collidedWith){
 
     }
     public ArrayList<Behavior> chooseBehaviors(){
-        return null;
+        ArrayList<Behavior> behaviors = new ArrayList<>();
+        behaviors.add(new Behaviors.Wander());
+        return behaviors;
     }
     public void defaultMovement(){
         int i = (int) (Math.random()*11) - 5;
