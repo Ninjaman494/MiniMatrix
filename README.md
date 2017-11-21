@@ -1,14 +1,14 @@
 # MiniMatrix
 A program that simulates humanity. Squares represent humans and they interact with each other according to various social forces and environments. 
 
-##TO-DO List 
+## TO-DO List 
 * Implement vision areas to improve movement 
 * Make Social force and Relationship interfaces 
 * Improve documentation and create a wiki to make contribution easier  
 * Improve structure of code so it's easier to create and implement new Social forces, Relationships, and Environments 
 * Create a debug tool which can be used to monitor the stats of any character in the world
 
-##Current Features 
+## Current Features 
 * The world is autopopulated with male and female characters.  
   * They are randomly spawned in the world and their gender is decided randomly, but a 50/50 ratio will try to be maintained.  
 * The social force for marriage has been created.  
